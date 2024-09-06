@@ -19,7 +19,11 @@ module.exports = {
         myBlack: '#434343'
       },
       width: {
-        '100': '18rem'
+        '100': '18rem',
+        '110': '40rem'
+      },
+      maxWidth: {
+        '30p': '30%'
       },
       height: {
         '100': '50rem'
