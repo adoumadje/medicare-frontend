@@ -16,14 +16,17 @@ module.exports = {
         myYellow: '#f7b130',
         myPurple: '#945ced',
         myGreen: '#02a6ba',
-        myBlack: '#434343'
+        myBlack: '#525252'
       },
       width: {
         '100': '18rem',
-        '110': '40rem'
+        '102': '20rem',
+        '140': '40rem'
       },
       maxWidth: {
-        '30p': '30%'
+        '30p': '30%',
+        '40p': '40%',
+        '50p': '50%'
       },
       height: {
         '100': '50rem'
