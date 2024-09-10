@@ -14,8 +14,11 @@ module.exports = {
       colors: {
         myblue: '#0f49e7',
         myYellow: '#f7b130',
+        lightYellow: '#fff7eb',
         myPurple: '#945ced',
+        lightPurple: '#efe6fa',
         myGreen: '#02a6ba',
+        lightGreen: '#d3f8fa',
         myBlack: '#525252',
         dotRed: '#ee4e58',
         dotOrange: '#fb7f23',
