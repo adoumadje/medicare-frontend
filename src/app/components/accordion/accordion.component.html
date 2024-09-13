@@ -1,0 +1,9 @@
+<div class="p-2 border-2 w-140 border-myBlack rounded mb-5">
+    <div (click)="toggle()" class="flex justify-between cursor-pointer">
+        <h4 class="font-semibold">{{ faq.question }}</h4> 
+        <i class="bi bi-plus-square text-myBlack text-lg"></i>
+    </div>
+    <div *ngIf="active" class="mt-2 border-t-2 pt-3 pb-2 border-myBlack">
+        <p class="text-myBlack">{{ faq.answer }}</p>
+    </div>
+</div>

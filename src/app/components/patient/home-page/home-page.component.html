@@ -281,3 +281,13 @@
         </div>
     </div>
 </div>
+<div class="px-13 flex justify-between pb-64">
+    <div>
+        <div class="w-80 h-80 mt-36 rounded me-4 bg-myGreen flex flex-col justify-end">
+            <img class="w-72 mx-auto" src="doctor-3-removebg-preview.png" alt="doctor">
+        </div>
+    </div>
+    <div class="max-w-50p">
+        <app-accordion *ngFor="let faq of faqs" [faq]="faq"></app-accordion>
+    </div>
+</div>
