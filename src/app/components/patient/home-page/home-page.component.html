@@ -288,6 +288,8 @@
         </div>
     </div>
     <div class="max-w-50p">
-        <app-accordion *ngFor="let faq of faqs" [faq]="faq"></app-accordion>
+        <app-accordion *ngFor="let faq of faqs" [faq]="faq"
+            (accordionClicked)="toggleAccordion($event)"
+        ></app-accordion>
     </div>
 </div>
