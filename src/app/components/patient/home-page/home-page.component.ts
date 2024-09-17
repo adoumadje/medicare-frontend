@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { AccordionComponent } from "../../accordion/accordion.component";
 import { NgFor } from '@angular/common';
 import { CarouselComponent } from "../../carousel/carousel.component";
+import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [AccordionComponent, NgFor, CarouselComponent],
+  imports: [AccordionComponent, NgFor, CarouselComponent, FooterComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
