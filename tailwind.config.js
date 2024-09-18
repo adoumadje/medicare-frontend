@@ -39,6 +39,9 @@ module.exports = {
       },
       height: {
         '100': '50rem'
+      },
+      inset: {
+        'rm-right': '200%'
       }
     },
   },
