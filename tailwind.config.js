@@ -23,9 +23,11 @@ module.exports = {
         myBlack: '#525252',
         dotRed: '#ee4e58',
         dotOrange: '#fb7f23',
-        dotGreen: '#1e9f81'
+        dotGreen: '#1e9f81',
+        inputBg: '#d0d8e6'
       },
       width: {
+        '70': '18rem',
         '100': '18rem',
         '102': '20rem',
         '104': '25rem',
