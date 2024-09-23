@@ -1,9 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { FooterComponent } from "../footer/footer.component";
+import { CarouselComponent } from "../carousel/carousel.component";
 
 @Component({
   selector: 'app-find-a-doctor',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent, CarouselComponent],
   templateUrl: './find-a-doctor.component.html',
   styleUrl: './find-a-doctor.component.css'
 })

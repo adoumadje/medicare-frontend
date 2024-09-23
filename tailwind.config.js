@@ -27,6 +27,7 @@ module.exports = {
         inputBg: '#d0d8e6'
       },
       width: {
+        '50': '14rem',
         '70': '18rem',
         '100': '18rem',
         '102': '20rem',
@@ -34,13 +35,14 @@ module.exports = {
         '140': '40rem',
         '60p': '60%'
       },
+      height: {
+        '50': '14rem',
+        '100': '50rem'
+      },
       maxWidth: {
         '30p': '30%',
         '40p': '40%',
         '50p': '50%'
-      },
-      height: {
-        '100': '50rem'
       },
       inset: {
         'rm-right': '200%'
