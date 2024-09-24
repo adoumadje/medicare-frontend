@@ -24,7 +24,8 @@ module.exports = {
         dotRed: '#ee4e58',
         dotOrange: '#fb7f23',
         dotGreen: '#1e9f81',
-        inputBg: '#d0d8e6'
+        inputBg: '#d0d8e6',
+        borderLightBlack: '#b2b2b2'
       },
       width: {
         '50': '14rem',
