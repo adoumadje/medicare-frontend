@@ -5,11 +5,13 @@ import { NavigationBarComponent } from "./components/general/navigation-bar/navi
 import { FindADoctorComponent } from "./components/find-a-doctor/find-a-doctor.component";
 import { DoctorDetailsPageComponent } from "./components/doctor-details-page/doctor-details-page.component";
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent],
+  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
