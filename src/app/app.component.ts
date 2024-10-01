@@ -7,11 +7,12 @@ import { DoctorDetailsPageComponent } from "./components/doctor-details-page/doc
 import { ContactUsComponent } from "./components/contact-us/contact-us.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { LoginComponent } from "./components/login/login.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent],
+  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
