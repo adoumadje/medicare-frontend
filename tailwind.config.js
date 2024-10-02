@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         myblue: '#0f49e7',
+        lightBlue: '#e9f2ff',
         myWhite: '#eeeeee',
         myYellow: '#f7b130',
         lightYellow: '#fff7eb',
@@ -21,6 +22,7 @@ module.exports = {
         myGreen: '#02a6ba',
         lightGreen: '#d3f8fa',
         myBlack: '#525252',
+        lightBlack: '#f0f0f0',
         dotRed: '#ee4e58',
         dotOrange: '#fb7f23',
         dotGreen: '#1e9f81',
@@ -36,7 +38,8 @@ module.exports = {
         '110': '30rem',
         '140': '40rem',
         '60p': '60%',
-        '40p': '40%'
+        '40p': '40%',
+        '20p': '20%'
       },
       height: {
         '50': '14rem',
