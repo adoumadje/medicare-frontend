@@ -9,11 +9,12 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { LoginComponent } from "./components/login/login.component";
 import { PatientDashboardComponent } from "./components/patient-dashboard/patient-dashboard.component";
+import { DoctorDashboardComponent } from "./components/doctor-dashboard/doctor-dashboard.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent, LoginComponent, PatientDashboardComponent],
+  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent, LoginComponent, PatientDashboardComponent, DoctorDashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
