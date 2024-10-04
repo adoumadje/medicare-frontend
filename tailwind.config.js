@@ -12,6 +12,7 @@ module.exports = {
         '20': ''
       },
       colors: {
+        myBrown: '#89481c',
         myblue: '#0f49e7',
         lightBlue: '#e9f2ff',
         myWhite: '#eeeeee',

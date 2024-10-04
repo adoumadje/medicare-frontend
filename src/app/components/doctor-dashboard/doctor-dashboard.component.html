@@ -1,122 +1,170 @@
 <div class="px-8 sm:px-13 pt-32 sm:pt-36 pb-16 sm:flex">
     <div class="sm:w-20p sm:me-16 sm:px-0 px-8 mb-10 sm:mb-0">
-        <div class="w-20 h-20 rounded-full overflow-hidden mx-auto border border-borderLightBlack flex flex-col justify-end">
-            <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/people19.png" alt=""
-            class="mx-auto w-16">
-        </div>
-        <h4 class="font-semibold mt-2 text-center">Emre Can</h4>
-        <p class="text-myBlack text-center my-1">emrecan&#64;gmail.com</p>
-        <p class="text-myBlack text-center">Blood Group: <span class="text-lg font-semibold">A+</span></p>
+        <ul class="list-none flex flex-col text-center">
+            <li class="hover:text-myblue hover:bg-lightBlue cursor-pointer mb-3 py-1 rounded">Overview</li>
+            <li class="hover:text-myblue hover:bg-lightBlue cursor-pointer mb-3 py-1 rounded">Appoitments</li>
+            <li class="hover:text-myblue text-myblue bg-lightBlue hover:bg-lightBlue cursor-pointer mb-2 py-1 rounded">Profile</li>
+        </ul>
+
         <button class="bg-black text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-16 mb-5 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Logout</button>
         <button class="bg-red-500 text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Delete Account</button>
     </div>
 
-    <div class="w-full sm:pe-24">
-        <div class="flex border-b border-borderLightBlack">
-            <button class="px-4 py-1 w-32 me-5">My Bookings</button>
-            <button class="px-4 py-1  w-32 border-b-2 border-myBlack bg-lightBlue rounded-t">Settings</button>
+    <div class="w-full">
+        <div class="bg-lightYellow py-1 px-3 mb-4 text-myBrown text-sm sm:me-24">
+            <p><i class="bi bi-info-circle-fill me-1"></i> To get approval please complete your profile. We'll review manually and approve within 3 days</p>
         </div>
+
+        <div class="hidden sm:pe-24">
+            <div class="sm:flex">
+                <div class="bg-myYellow rounded w-64 sm:w-50 h-64 sm:h-50 mb-4 sm:me-5 flex flex-col justify-center overflow-hidden">
+                    <img src="doctor-1-removebg-preview.png" 
+                        class="w-40 mx-auto mt-10"
+                    alt="doctor">
+                </div>
+                <div>
+                    <button class="text-myGreen text-md bg-lightGreen px-3 mt-3 mb-3 py-1 rounded">Neurologist</button>
+                    <h4 class="font-semibold text-md mb-2">Dr. Mungulu Mungala</h4>
+                    <div>
+                        <i class="bi bi-star-fill text-myYellow"></i>
+                        <span class="font-semibold text-sm mx-2">4.5</span>
+                        <span class="text-myBlack text-sm">(2)</span>
+                    </div>
+                    <p class="mt-10 text-myBlack">Specialist in Neurology</p>
+                </div>
+            </div>
+
+            <div class="">
+                <h3 class="font-semibold text-lg my-10">About the <span class="text-myGreen">Dr. Mungulu Mungala</span></h3>
+                <p class="text-myBlack">Dr. Mungulu Mungala is a highly experienced neurologist with a dedicated focus on diagnosing and treating conditions related to the nervous system. With years of specialized training in neurology, Dr. Mungala has expertise in managing complex neurological disorders, including epilepsy, stroke, Parkinson’s disease, and multiple sclerosis.
+                <br>
+                Dr. Mungala is known for his patient-centered approach, ensuring each individual receives comprehensive care tailored to their unique needs. His commitment to advancing neurological care extends to participating in cutting-edge research and implementing the latest treatment protocols.
+                <br>
+                In addition to his clinical practice, Dr. Mungala actively engages in community outreach and education, helping raise awareness about neurological health. His compassion and dedication to improving the quality of life for his patients make him a respected figure in the field of neurology.
+                </p>
+                <h4 class="font-semibold mt-10">Education</h4>
+                <div class="ms-5">
+                    <h5 class="text-myGreen text-sm font-semibold mt-5">2008-2010</h5>
+                    <div class="flex justify-between text-myBlack text-sm">
+                        <span>Bsc degree in Neurosciences</span>
+                        <span>University of Paris-Saclay</span>
+                    </div>
+                    <h5 class="text-myGreen text-sm font-semibold mt-5">2011-2015</h5>
+                    <div class="flex justify-between text-myBlack text-sm">
+                        <span>Msc degree in Brain Studies</span>
+                        <span>University of Maryland</span>
+                    </div>
+                    <h5 class="text-myGreen text-sm font-semibold mt-5">2016-2018</h5>
+                    <div class="flex justify-between text-myBlack text-sm">
+                        <span>Phd in Neurosciences</span>
+                        <span>Massachusetts Institute of Technology (MIT)</span>
+                    </div>
+                </div>
+                <h4 class="font-semibold mt-10 mb-8">Experience</h4>
+                <div class="ms-5 grid grid-cols-1 sm:grid-cols-2 grid-rows-3 sm:grid-rows-2 gap-10">
+                    <div class="px-3 py-5 bg-lightYellow text-sm">
+                        <h5 class="text-myYellow font-semibold mb-3">2017-2019</h5>
+                        <h5 class="mb-2">Associate Professor</h5>
+                        <p class="text-myBlack text-xs">Mount Adora Hospital, Sylhet</p>
+                    </div>
+                    <div class="px-3 py-5 bg-lightYellow text-sm">
+                        <h5 class="text-myYellow font-semibold mb-3">2020-2022</h5>
+                        <h5 class="mb-2">Medical & General Surgeon</h5>
+                        <p class="text-myBlack text-xs">MAG Osmani Medical, Sylhet</p>
+                    </div>
+                    <div class="px-3 py-5 bg-lightYellow text-sm">
+                        <h5 class="text-myYellow font-semibold mb-3">2023-present</h5>
+                        <h5 class="mb-2">Sr. Consultant</h5>
+                        <p class="text-myBlack text-xs">New Apollo Hospital, California</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="hidden">
-            <div class="bg-lightBlack p-1 mt-5 mb-8">
+            <div class="bg-lightBlack p-1 mt-5 mb-8 sm:me-24">
                 <button class="px-2 w-28 py-1 bg-white rounded-sm">Upcoming</button>
                 <button class="px-2 w-24 py-1 ">Expired</button>
             </div>
 
-            <div class="border border-borderLightBlack rounded p-5 sm:flex justify-between">
-                <div class="sm:flex">
-                    <div class="bg-myYellow rounded w-64 sm:w-32 h-64 sm:h-32 mx-auto sm:mb-0 mb-5 sm:me-5 flex flex-col justify-center overflow-hidden">
-                        <img src="doctor-1-removebg-preview.png" 
-                            class="sm:w-28 w-48 mx-auto mt-10"
-                        alt="doctor">
-                    </div>
-                    <div class="pt-1 sm:mb-0 mb-5">
-                        <h4 class="font-semibold mb-2">Dr. Mungulu Mungala</h4>
-                        <p class="text-myBlack mb-2"><i class="bi bi-geo-alt text-myblue me-2"></i><span class="text-sm">547 Carrington Trace Drive, Cornelius</span></p>
-                        <p class="text-myBlack mb-2"><i class="bi bi-calendar-check text-myblue me-2"></i><span class="text-sm">Appointment on: <span class="font-semibold">20-Feb-2024</span></span></p>
-                        <p class="text-myBlack mb-2"><i class="bi bi-clock text-myblue me-2"></i><span class="text-sm">At Time: <span class="font-semibold">04:30 PM</span></span></p>
-                    </div>
-                </div>
-                <div>
-                    <button class="px-2 py-1 w-full hover:bg-myblue hover:text-white focus:ring-2 transform hover:scale-105 border border-myblue rounded text-myblue">Cancel Appointement</button>
-                </div>
-            </div>
+            <table>
+                <thead class="bg-inputBg">
+                    <th class="py-1 px-2 font-normal text-center">FULLNAME</th>
+                    <th class="py-1 px-4 font-normal text-center">GENDER</th>
+                    <th class="py-1 px-4 font-normal text-center">BLOOD GROUP</th>
+                    <th class="py-1 px-4 font-normal text-center">PAYMENT</th>
+                    <th class="py-1 px-2 font-normal text-center">PRICE</th>
+                    <th class="py-1 px-2 font-normal text-center">DATE</th>
+                    <th class="py-1 px-2 font-normal text-center">TIME</th>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-borderLightBlack text-myBlack hover:bg-inputBg cursor-pointer">
+                        <td class="flex px-4 py-2">
+                            <div class="w-10 h-10 rounded-full overflow-hidden me-4">
+                                <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/people19.png" alt=""
+                                class="mx-auto">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-myBlack">Ahmed Ali</h4>
+                                <p class="text-myBlack text-xs">ali&#64;gmail.com</p>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            Male
+                        </td>
+                        <td class="text-center">
+                            A+
+                        </td>
+                        <td class="text-center">
+                            <i class="bi bi-check-circle-fill text-green-500"></i> Paid
+                        </td>
+                        <td class="text-center px-4">
+                            500 USD
+                        </td>
+                        <td class="text-center px-4">
+                            June 27, 2024
+                        </td>
+                        <td class="text-center px-4">
+                            04:30 PM
+                        </td>
+                    </tr>
 
-            <div class="border border-borderLightBlack rounded p-5 sm:flex justify-between mt-8">
-                <div class="sm:flex">
-                    <div class="bg-myGreen rounded w-64 sm:w-32 h-64 sm:h-32 mx-auto sm:mb-0 mb-5 sm:me-5 flex flex-col justify-center overflow-hidden">
-                        <img src="doctor-3-removebg-preview.png" 
-                            class="sm:w-28 w-48 mx-auto mt-10"
-                        alt="doctor">
-                    </div>
-                    <div class="pt-1 sm:mb-0 mb-5">
-                        <h4 class="font-semibold mb-2">Dr. Xunli Mha</h4>
-                        <p class="text-myBlack mb-2"><i class="bi bi-geo-alt text-myblue me-2"></i><span class="text-sm">789 Pine Road Austin, TX 73301</span></p>
-                        <p class="text-myBlack mb-2"><i class="bi bi-calendar-check text-myblue me-2"></i><span class="text-sm">Appointment on: <span class="font-semibold">20-Feb-2024</span></span></p>
-                        <p class="text-myBlack mb-2"><i class="bi bi-clock text-myblue me-2"></i><span class="text-sm">At Time: <span class="font-semibold">04:30 PM</span></span></p>
-                    </div>
-                </div>
-                <div>
-                    <button class="px-2 py-1 w-full hover:bg-myblue hover:text-white focus:ring-2 transform hover:scale-105 border border-myblue rounded text-myblue">Cancel Appointement</button>
-                </div>
-            </div>
+                    <tr class="border-b border-borderLightBlack text-myBlack hover:bg-inputBg cursor-pointer">
+                        <td class="flex px-4 py-2">
+                            <div class="w-10 h-10 rounded-full overflow-hidden me-4">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/640px-Outdoors-man-portrait_%28cropped%29.jpg" alt=""
+                                class="mx-auto">
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-myBlack">Rakib </h4>
+                                <p class="text-myBlack text-xs">rakib&#64;gmail.com</p>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            Male
+                        </td>
+                        <td class="text-center">
+                            A+
+                        </td>
+                        <td class="text-center">
+                            <i class="bi bi-check-circle-fill text-green-500"></i> Paid
+                        </td>
+                        <td class="text-center px-4">
+                            500 USD
+                        </td>
+                        <td class="text-center px-4">
+                            June 27, 2024
+                        </td>
+                        <td class="text-center px-4">
+                            04:30 PM
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <div class="sm:pe-64">
-            <form>
-                <h2 class="font-semibold text-xl my-10">Profile Settings</h2>
-                <div class="w-full mb-8">
-                    <input type="text" class="w-full border-b border-borderLightBlack py-2"
-                        placeholder="Fullname"
-                    >
-                </div>
-                <div class="w-full mb-8">
-                    <input type="email" class="w-full border-b border-borderLightBlack py-2"
-                        placeholder="Email"
-                    >
-                </div>
-                <div class="w-full mb-8">
-                    <input type="password" class="w-full border-b border-borderLightBlack py-2"
-                        placeholder="Password"
-                    >
-                </div>
-                <div class="w-full mb-8 flex justify-between">
-                    <div class="flex">
-                        <label for="" class="block font-semibold">Blood Group:</label>
-                        <select name="" id="" class="bg-none ms-2 p-1">
-                            <option value="">A+</option>
-                            <option value="">A-</option>
-                            <option value="">B+</option>
-                            <option value="">B-</option>
-                            <option value="">O+</option>
-                            <option value="">O-</option>
-                            <option value="">AB+</option>
-                            <option value="">AB-</option>
-                        </select>
-                    </div>
-                    <div class="flex">
-                        <label for="" class="block font-semibold">Gender:</label>
-                        <select name="" id="" class="bg-none ms-2 p-1">
-                            <option value="">Male</option>
-                            <option value="">Female</option>
-                            <option value="">other</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="w-full sm:flex justify-between items-center mb-8">
-                    <div class="flex sm:justify-between items-center mb-3 sm:mb-0">
-                        <div class="w-14 h-14 rounded-full border border-borderLightBlack overflow-hidden flex flex-col justify-end">
-                            <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/people19.png" alt="" class="mx-auto w-11">
-                        </div>
-                        <button class="bg-myblue text-white sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 ms-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Upload Photo</button>
-                    </div>
-                    <span class="font-semibold">OR</span>
-                    <div>
-                        <input type="text" class="w-full border border-borderLightBlack px-2 py-2 rounded mt-3 sm:mt-0"
-                    placeholder="Past URL..."/>
-                    </div>
-                </div>
-                <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Update Profile</button>
-            </form>
+        <div class="sm:pe-24">
+
         </div>
     </div>
 </div>
