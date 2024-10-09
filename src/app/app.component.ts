@@ -11,11 +11,12 @@ import { LoginComponent } from "./components/login/login.component";
 import { PatientDashboardComponent } from "./components/patient-dashboard/patient-dashboard.component";
 import { DoctorDashboardComponent } from "./components/doctor-dashboard/doctor-dashboard.component";
 import { ServicesPageComponent } from "./components/services-page/services-page.component";
+import { PaymentPageComponent } from "./components/payment-page/payment-page.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent, LoginComponent, PatientDashboardComponent, DoctorDashboardComponent, ServicesPageComponent],
+  imports: [RouterOutlet, HomePageComponent, NavigationBarComponent, FindADoctorComponent, DoctorDetailsPageComponent, ContactUsComponent, FooterComponent, RegisterComponent, LoginComponent, PatientDashboardComponent, DoctorDashboardComponent, ServicesPageComponent, PaymentPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
