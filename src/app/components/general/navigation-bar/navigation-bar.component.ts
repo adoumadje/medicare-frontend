@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,13 +8,24 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navigation-bar.component.html',
   styleUrl: './navigation-bar.component.css'
 })
-export class NavigationBarComponent {
+export class NavigationBarComponent implements OnInit {
       mobileMenuDisplay:string;
       mobileMenuButton:string;
 
-      constructor() {
+      currentRoute:string | undefined;
+
+      constructor(private route: ActivatedRoute, private router: Router) {
         this.mobileMenuDisplay = '-right-rm-right'
         this.mobileMenuButton = 'bi bi-list text-2xl'
+      }
+
+      ngOnInit(): void {
+        this.route.url.subscribe((url) => {
+          this.currentRoute = url.join('/');
+          console.log(this.currentRoute);
+          console.log('Hello')
+          
+        })
       }
 
       toggleMobileMenu():void {
