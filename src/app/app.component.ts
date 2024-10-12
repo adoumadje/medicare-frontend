@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { HomePageComponent } from "./components/patient/home-page/home-page.component";
 import { NavigationBarComponent } from "./components/general/navigation-bar/navigation-bar.component";
 import { FindADoctorComponent } from "./components/find-a-doctor/find-a-doctor.component";
