@@ -11,16 +11,19 @@ import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/rout
 export class NavigationBarComponent implements OnInit {
       mobileMenuDisplay:string;
       mobileMenuButton:string;
+      currentUrl:string;
 
       constructor(private router: Router) {
         this.mobileMenuDisplay = '-right-rm-right'
         this.mobileMenuButton = 'bi bi-list text-2xl'
+        this.currentUrl = ''
       }
 
       ngOnInit(): void {
         this.router.events.subscribe((event) => {
           if(event instanceof NavigationEnd) {
-            console.log(event.urlAfterRedirects);
+            this.currentUrl = event.urlAfterRedirects;
+            console.log(this.currentUrl);
             
           }
         })

@@ -1,17 +1,17 @@
 <nav class="fixed z-20 top-0 left-0 right-0 flex justify-between items-center px-8 sm:px-13 py-3 sm:py-6 bg-no-repeat bg-center bg-cover"
 style="background-image: url('bg-navbar.png');">
     <div class="sm:hidden"></div>
-    <h1 class="flex items-center cursor-pointer">
+    <h1 routerLink="/" class="flex items-center cursor-pointer">
         <img src="medicare-logo.svg" 
             class="w-5 me-1"
         alt="logo">
         <span class="font-bold text-2xl">Medicare</span>
     </h1>
     <ul class="hidden sm:flex list-none text-myBlack">
-        <li class="mx-3 hover:text-myblue cursor-pointer"><a routerLink="home">Home</a></li>
-        <li class="mx-3 hover:text-myblue cursor-pointer text-myblue"><a routerLink="services">Services</a></li>
-        <li class="mx-3 hover:text-myblue cursor-pointer"><a routerLink="find-a-doctor">Find a Doctor</a></li>
-        <li class="mx-3 hover:text-myblue cursor-pointer"><a routerLink="contact">Contact</a></li>
+        <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/' || currentUrl === '/home' ? 'text-myblue' : '' }}"><a routerLink="home">Home</a></li>
+        <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/services' ? 'text-myblue' : '' }}"><a routerLink="services">Services</a></li>
+        <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/find-a-doctor' ? 'text-myblue' : '' }}"><a routerLink="find-a-doctor">Find a Doctor</a></li>
+        <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/contact' ? 'text-myblue' : '' }}"><a routerLink="contact">Contact</a></li>
     </ul>
     <button class="hidden sm:block bg-myblue text-white px-4 py-1 rounded-l-full rounded-r-full shadow-md focus:ring-2 transform hover:scale-105" routerLink="login"
     >Login</button>
@@ -20,11 +20,11 @@ style="background-image: url('bg-navbar.png');">
     </div>
     <div class="sm:hidden flex justify-center items-center bg-lightGreen absolute top-0 {{ mobileMenuDisplay }} w-screen h-screen">
         <ul class="flex flex-col items-center list-none text-myBlack ">
-            <li class="mb-8 cursor-pointer"><a routerLink="home">Home</a></li>
-            <li class="mb-8 cursor-pointer"><a routerLink="services">Services</a></li>
-            <li class="mb-8 cursor-pointer"><a routerLink="find-a-doctor">Find a Doctor</a></li>
-            <li class="mb-8 cursor-pointer"><a routerLink="contact">Contact</a></li>
-            <li class="mb-8 cursor-pointer"><a routerLink="login">Login</a></li>
+            <li (click)="toggleMobileMenu()" class="mb-8 cursor-pointer {{ currentUrl === '/' || currentUrl === '/home' ? 'text-myblue' : '' }}"><a routerLink="home">Home</a></li>
+            <li (click)="toggleMobileMenu()" class="mb-8 cursor-pointer {{ currentUrl === '/services' ? 'text-myblue' : '' }}"><a routerLink="services">Services</a></li>
+            <li (click)="toggleMobileMenu()" class="mb-8 cursor-pointer {{ currentUrl === '/find-a-doctor' ? 'text-myblue' : '' }}"><a routerLink="find-a-doctor">Find a Doctor</a></li>
+            <li (click)="toggleMobileMenu()" class="mb-8 cursor-pointer {{ currentUrl === '/contact' ? 'text-myblue' : '' }}"><a routerLink="contact">Contact</a></li>
+            <li (click)="toggleMobileMenu()" class="mb-8 cursor-pointer {{ currentUrl === '/login' ? 'text-myblue' : '' }}"><a routerLink="login">Login</a></li>
         </ul>
     </div>
 </nav>
