@@ -10,24 +10,33 @@
                 <input type="text" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Fullname" formControlName="fullname"
                 >
+                <small class="block text-red-500 mt-1" *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+                    <p *ngIf="fullname.errors?.['required']">Fullname is required</p>
+                </small>
             </div>
 
             <div class="w-full mb-8">
                 <input type="email" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Email" formControlName="email"
                 >
+                <small class="block text-red-500 mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <p *ngIf="email.errors?.['required']">Email is required</p>
+                </small>
             </div>
 
             <div class="w-full mb-8">
                 <input type="password" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Password" formControlName="password"
                 >
+                <small class="block text-red-500 mt-1" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <p *ngIf="fullname.errors?.['required']">Password is required</p>
+                </small>
             </div>
 
             <div class="w-full mb-8 flex justify-between">
                 <div class="flex">
                     <label for="" class="block font-semibold">Are you a:</label>
-                    <select name="" id="" class="bg-none ms-2 p-1" formControlName="user">
+                    <select name="" id="" class="bg-none ms-2 p-1" formControlName="userType">
                         <option value="patient">patient</option>
                         <option value="doctor">doctor</option>
                     </select>
@@ -42,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="w-full sm:flex justify-between items-center mb-8" formGroupName="photo">
+            <div class="w-full sm:flex justify-between items-center mb-8">
                 <div class="flex sm:justify-between items-center mb-3 sm:mb-0">
                     <div class="w-14 h-14 rounded-full border border-borderLightBlack overflow-hidden">
                         <img src="https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png" alt="" class="mx-auto">
@@ -57,7 +66,9 @@
                 placeholder="Past URL..." formControlName="profilePicUrl" />
                 </div>
             </div>
-            <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105" type="submit">Sign Up</button>
+            <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded {{ registerForm.invalid ? 'pointer-events-none bg-notClickable' : 'cursor-pointer' }} focus:ring-2 transform hover:scale-105" 
+            type="submit"
+            [disabled]="registerForm.invalid">Sign Up</button>
             <p class="text-myBlack mt-3 text-center">Already have an account? <a routerLink="/login" class="text-myblue">Login</a></p>
         </form>
     </div>

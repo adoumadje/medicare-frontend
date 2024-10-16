@@ -28,7 +28,8 @@ module.exports = {
         dotOrange: '#fb7f23',
         dotGreen: '#1e9f81',
         inputBg: '#d0d8e6',
-        borderLightBlack: '#b2b2b2'
+        borderLightBlack: '#b2b2b2',
+        notClickable: '#d1e5ff'
       },
       width: {
         '50': '14rem',

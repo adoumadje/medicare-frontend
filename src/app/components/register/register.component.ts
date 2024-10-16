@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { pictureOrUrlValidator } from '../../validators/picture-or-url.validator';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, NgIf],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -18,13 +18,31 @@ export class RegisterComponent {
             fullname: new FormControl('', Validators.required),
             email: new FormControl('', Validators.required),
             password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-            user: new FormControl('patient', Validators.required),
+            userType: new FormControl('patient', Validators.required),
             gender: new FormControl('Male', Validators.required),
-            photo: new FormGroup({
-              profilePicture: new FormControl(null),
-              profilePicUrl: new FormControl('')
-            }, [pictureOrUrlValidator])
+            profilePicture: new FormControl(null),
+            profilePicUrl: new FormControl('')
         })
+    }
+
+    get fullname() {
+        return this.registerForm.controls['fullname']
+    }
+
+    get email() {
+        return this.registerForm.controls['email']
+    }
+
+    get password() {
+        return this.registerForm.controls['password']
+    }
+
+    get userType() {
+        return this.registerForm.controls['userType']
+    }
+
+    get gender() {
+        return this.registerForm.controls['gender']
     }
 
     onImageSelected(event:any):void {
@@ -33,7 +51,8 @@ export class RegisterComponent {
     }
 
     onSubmit():void {
-        console.log(this.registerForm.value);
+        const formData = { ...this.registerForm.value }
+        console.log(formData);
         
     }
 }
