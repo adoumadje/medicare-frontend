@@ -1,56 +1,63 @@
-<div class="px-8 sm:px-13 pt-36 flex">
+<div class="px-8 sm:px-13 pt-32 flex">
     <div class="sm:w-1/2">
         <img src="register.svg" alt="" class="w-full">
     </div>
     <div class="sm:w-1/2 w-full sm:pe-14">
-        <form [formGroup]="registerForm">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h2 class="font-semibold text-lg mb-10">Create an <span class="text-myblue">Account</span></h2>
+
             <div class="w-full mb-8">
                 <input type="text" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Fullname" formControlName="fullname"
                 >
             </div>
+
             <div class="w-full mb-8">
                 <input type="email" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Email" formControlName="email"
                 >
             </div>
+
             <div class="w-full mb-8">
                 <input type="password" class="w-full border-b border-borderLightBlack py-2"
                     placeholder="Password" formControlName="password"
                 >
             </div>
+
             <div class="w-full mb-8 flex justify-between">
                 <div class="flex">
                     <label for="" class="block font-semibold">Are you a:</label>
                     <select name="" id="" class="bg-none ms-2 p-1" formControlName="user">
-                        <option value="">patient</option>
-                        <option value="">doctor</option>
+                        <option value="patient">patient</option>
+                        <option value="doctor">doctor</option>
                     </select>
                 </div>
                 <div class="flex">
                     <label for="" class="block font-semibold">Gender:</label>
                     <select name="" id="" class="bg-none ms-2 p-1" formControlName="gender">
-                        <option value="">Male</option>
-                        <option value="">Female</option>
-                        <option value="">other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
-            <div class="w-full sm:flex justify-between items-center mb-8">
+
+            <div class="w-full sm:flex justify-between items-center mb-8" formGroupName="photo">
                 <div class="flex sm:justify-between items-center mb-3 sm:mb-0">
                     <div class="w-14 h-14 rounded-full border border-borderLightBlack overflow-hidden">
                         <img src="https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png" alt="" class="mx-auto">
                     </div>
-                    <button class="bg-myblue text-white sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 ms-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Upload Photo</button>
+                    <input type="file" id="profile-pic" accept="image/*" class="hidden" formControlName="profilePicture"
+                    (change)="onImageSelected($event)">
+                    <label for="profile-pic" class="bg-myblue text-white sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 ms-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Upload Photo</label>
                 </div>
                 <span class="font-semibold">OR</span>
                 <div>
-                    <input type="text" class="w-full border border-borderLightBlack px-2 py-2 rounded mt-3 sm:mt-0"
-                placeholder="Past URL..."/>
+                    <input type="url" class="w-full border border-borderLightBlack px-2 py-2 rounded mt-3 sm:mt-0"
+                placeholder="Past URL..." formControlName="profilePicUrl" />
                 </div>
             </div>
-            <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Sign Up</button>
+            <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105" type="submit">Sign Up</button>
             <p class="text-myBlack mt-3 text-center">Already have an account? <a routerLink="/login" class="text-myblue">Login</a></p>
         </form>
     </div>

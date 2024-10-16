@@ -18,12 +18,22 @@ export class RegisterComponent {
             fullname: new FormControl('', Validators.required),
             email: new FormControl('', Validators.required),
             password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-            user: new FormControl('', Validators.required),
-            gender: new FormControl('', Validators.required),
+            user: new FormControl('patient', Validators.required),
+            gender: new FormControl('Male', Validators.required),
             photo: new FormGroup({
-              profilePicture: new FormControl(''),
+              profilePicture: new FormControl(null),
               profilePicUrl: new FormControl('')
             }, [pictureOrUrlValidator])
         })
+    }
+
+    onImageSelected(event:any):void {
+        console.log(event.target.files[0]);
+        
+    }
+
+    onSubmit():void {
+        console.log(this.registerForm.value);
+        
     }
 }

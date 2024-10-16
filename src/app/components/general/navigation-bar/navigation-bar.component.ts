@@ -23,8 +23,6 @@ export class NavigationBarComponent implements OnInit {
         this.router.events.subscribe((event) => {
           if(event instanceof NavigationEnd) {
             this.currentUrl = event.urlAfterRedirects;
-            console.log(this.currentUrl);
-            
           }
         })
       }
