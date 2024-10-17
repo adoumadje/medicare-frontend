@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,13 +14,15 @@ import { NgIf } from '@angular/common';
 export class RegisterComponent {
     registerForm:FormGroup;
 
-    constructor() {
+    constructor(
+        private authService:AuthService
+    ) {
         this.registerForm = new FormGroup({
             fullname: new FormControl('', Validators.required),
             email: new FormControl('', Validators.required),
             password: new FormControl('', [Validators.required, Validators.minLength(6)]),
             userType: new FormControl('patient', Validators.required),
-            gender: new FormControl('Male', Validators.required),
+            gender: new FormControl('MALE', Validators.required),
             profilePicture: new FormControl(null),
             profilePicUrl: new FormControl('')
         })
@@ -52,7 +55,20 @@ export class RegisterComponent {
 
     onSubmit():void {
         const formData = { ...this.registerForm.value }
-        console.log(formData);
-        
+        if(formData.userType === 'patient') {
+            this.authService.registerPatient(formData).
+            subscribe(
+                response => {
+                    console.log(response);
+                }
+            )
+        } else {
+            this.authService.registerDoctor(formData).
+            subscribe(
+                response => {
+                    console.log(response);
+                }
+            )
+        }
     }
 }
