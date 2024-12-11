@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { FileUploadService } from '../../services/file-upload.service';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +15,12 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
     registerForm:FormGroup;
 
+    selectedFile: File | null = null
+    uploadedFileUrl:string | null = null
+
     constructor(
-        private authService:AuthService
+        private authService:AuthService,
+        private fileService:FileUploadService
     ) {
         this.registerForm = new FormGroup({
             fullname: new FormControl('', Validators.required),
@@ -49,12 +54,23 @@ export class RegisterComponent {
     }
 
     onImageSelected(event:any):void {
-        console.log(event.target.files[0]);
-        
+        const file = event.target.files[0];
+        if(file) {
+            this.selectedFile = file
+        }
     }
 
-    onSubmit():void {
-        const formData = { ...this.registerForm.value }
+    uploadFile(file:File) {
+        const formData = new FormData()
+        formData.append('file', file)
+        this.fileService.uploadProfilePicture(formData)
+        .subscribe(res => {
+            console.log(res)
+        })
+    }
+
+    submitForm(formData:any) {
+        console.log(formData)
         if(formData.userType === 'patient') {
             this.authService.registerPatient(formData).
             subscribe(
@@ -69,6 +85,14 @@ export class RegisterComponent {
                     console.log(response);
                 }
             )
+        }
+    }
+
+    onSubmit():void {
+        let formData = { ...this.registerForm.value }
+        console.log(formData)
+        if(this.selectedFile != null) {
+            this.uploadFile(this.selectedFile)
         }
     }
 }
