@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { FileUploadService } from '../../services/file-upload.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,6 @@ import { FileUploadService } from '../../services/file-upload.service';
 })
 export class RegisterComponent {
     registerForm:FormGroup;
-    canSubmit:Boolean = true
 
 
     defaultAvatar:String = "https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png"
@@ -23,7 +23,9 @@ export class RegisterComponent {
 
     constructor(
         private authService:AuthService,
-        private fileService:FileUploadService
+        private fileService:FileUploadService,
+        private toastr:ToastrService,
+        private router:Router
     ) {
         this.registerForm = new FormGroup({
             fullname: new FormControl('', Validators.required),
@@ -104,30 +106,39 @@ export class RegisterComponent {
             profilePicture: null,
             profilePicUrl: ''
         })
+        this.selectedFile = null
+        this.selectedImgUrl = null
     }
 
     submitForm(formData:any) {
         if(formData.userType === 'patient') {
             this.authService.registerPatient(formData).
-            subscribe(
-                res => {
-                    this.canSubmit = true
+            subscribe({
+                next: (res:any) => {
+                    this.toastr.success('registered successfully', 'Success', { timeOut: 3000 })
                     this.resetForm()
+                    this.router.navigate(['/login'])
+                },
+                error: (err) => {
+                    this.toastr.error(err.message, 'Error', { timeOut: 3000 })
                 }
-            )
+            })
         } else {
             this.authService.registerDoctor(formData).
-            subscribe(
-                res => {
-                    this.canSubmit = true
+            subscribe({
+                next: (res:any) => {
+                    this.toastr.success('registered successfully', 'Success', { timeOut: 3000 })
                     this.resetForm()
+                    this.router.navigate(['/login'])
+                },
+                error: (err) => {
+                    this.toastr.error(err.message, 'Error', { timeOut: 3000 })
                 }
-            )
+            })
         }
     }
 
     onSubmit():void {
-        this.canSubmit = false
         if(this.selectedFile != null) {
             this.uploadFile(this.selectedFile)
         } else {
