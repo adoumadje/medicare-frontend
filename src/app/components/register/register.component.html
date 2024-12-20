@@ -54,7 +54,8 @@
             <div class="w-full sm:flex justify-between items-center mb-8">
                 <div class="flex sm:justify-between items-center mb-3 sm:mb-0">
                     <div class="w-14 h-14 rounded-full border border-borderLightBlack overflow-hidden">
-                        <img src="https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png" alt="" class="mx-auto">
+                        <img src="{{ selectedImgUrl == null ? defaultAvatar : selectedImgUrl }}" 
+                        alt="" class="mx-auto">
                     </div>
                     <input type="file" id="profile-pic" accept="image/*" class="hidden" formControlName="profilePicture"
                     (change)="onImageSelected($event)">
@@ -63,12 +64,13 @@
                 <span class="font-semibold">OR</span>
                 <div>
                     <input type="url" class="w-full border border-borderLightBlack px-2 py-2 rounded mt-3 sm:mt-0"
-                placeholder="Past URL..." formControlName="profilePicUrl" />
+                    placeholder="Past URL..." formControlName="profilePicUrl" 
+                    (input)="onImageUrlEntered($event)" />
                 </div>
             </div>
             <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded {{ registerForm.invalid ? 'pointer-events-none bg-notClickable' : 'cursor-pointer' }} focus:ring-2 transform hover:scale-105" 
             type="submit"
-            [disabled]="registerForm.invalid">Sign Up</button>
+            [disabled]="registerForm.invalid && !canSubmit">Sign Up</button>
             <p class="text-myBlack mt-3 text-center">Already have an account? <a routerLink="/login" class="text-myblue">Login</a></p>
         </form>
     </div>

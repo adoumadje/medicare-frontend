@@ -14,9 +14,12 @@ import { FileUploadService } from '../../services/file-upload.service';
 })
 export class RegisterComponent {
     registerForm:FormGroup;
+    canSubmit:Boolean = true
 
-    selectedFile: File | null = null
-    uploadedFileUrl:string | null = null
+
+    defaultAvatar:String = "https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png"
+    selectedFile:File | null = null
+    selectedImgUrl:String | null = null
 
     constructor(
         private authService:AuthService,
@@ -53,11 +56,31 @@ export class RegisterComponent {
         return this.registerForm.controls['gender']
     }
 
+    get profilePicture() {
+        return this.registerForm.controls['profilePicture']
+    }
+
+    get profilePicUrl() {
+        return this.registerForm.controls['profilePicUrl']
+    }
+
     onImageSelected(event:any):void {
         const file = event.target.files[0];
         if(file) {
             this.selectedFile = file
+            const reader = new FileReader()
+            reader.onload = () => {
+                this.selectedImgUrl = reader.result as String
+            }
+            reader.readAsDataURL(file)
+            this.registerForm.get('profilePicUrl')?.reset()
         }
+    }
+
+    onImageUrlEntered(event:any):void {
+        this.selectedFile = null
+        this.selectedImgUrl = null
+        this.registerForm.get('profilePicture')?.reset()
     }
 
     uploadFile(file:File) {
@@ -65,34 +88,50 @@ export class RegisterComponent {
         formData.append('file', file)
         this.fileService.uploadProfilePicture(formData)
         .subscribe(res => {
-            console.log(res)
+            let formData = { ...this.registerForm.value }
+            formData.profilePicUrl = res
+            this.submitForm(formData)
+        })
+    }
+
+    resetForm() {
+        this.registerForm.reset({
+            fullname: '',
+            email: '',
+            password: '',
+            userType: 'patient',
+            gender: 'MALE',
+            profilePicture: null,
+            profilePicUrl: ''
         })
     }
 
     submitForm(formData:any) {
-        console.log(formData)
         if(formData.userType === 'patient') {
             this.authService.registerPatient(formData).
             subscribe(
-                response => {
-                    console.log(response);
+                res => {
+                    this.canSubmit = true
+                    this.resetForm()
                 }
             )
         } else {
             this.authService.registerDoctor(formData).
             subscribe(
-                response => {
-                    console.log(response);
+                res => {
+                    this.canSubmit = true
+                    this.resetForm()
                 }
             )
         }
     }
 
     onSubmit():void {
-        let formData = { ...this.registerForm.value }
-        console.log(formData)
+        this.canSubmit = false
         if(this.selectedFile != null) {
             this.uploadFile(this.selectedFile)
+        } else {
+            this.submitForm({ ...this.registerForm.value })
         }
     }
 }

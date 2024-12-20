@@ -15,6 +15,6 @@ export class FileUploadService {
 
   uploadProfilePicture(formData:FormData) {
     return this.http.post(`${this.baseUrl}/general/upload-profile-pic`, 
-      formData)
+      formData, { responseType: 'text' })
   }
 }
