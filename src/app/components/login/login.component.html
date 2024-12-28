@@ -1,28 +1,40 @@
 <div class="px-8 sm:px-13 pt-40 mb-16">
     <div class="mx-auto shadow-xl py-8 px-14 rounded-lg sm:w-40p">
         <h3 class="text-center font-semibold text-lg mb-5">Hello! <span class="text-myblue">Welcome</span> Back🎉🎉</h3>
-        <div class="mb-5">
-            <span class="me-2">I am a:</span>
-            <label for="" class="text-myBlack me-3">
-                <input type="radio" name="status" id="" class="cursor-pointer">
-                patient
-            </label>
-            <label for="" class="text-myBlack">
-                <input type="radio" name="status" id="" class="cursor-pointer">
-                doctor
-            </label>
-        </div>
-        <div class="w-full mb-8">
-            <input type="email" class="w-full border-b border-borderLightBlack py-2 px-1"
-                placeholder="Email"
-            >
-        </div>
-        <div class="w-full mb-5">
-            <input type="password" class="w-full border-b border-borderLightBlack py-2 px-1"
-                placeholder="Password"
-            >
-        </div>
-        <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Login</button>
-        <p class="text-myBlack mt-2 text-center">Don't have an account? <a routerLink="/register" class="text-myblue">Register</a></p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-5">
+                <span class="me-2">I am a:</span>
+                <label for="" class="text-myBlack me-3">
+                    <input type="radio" formControlName="status" id="" class="cursor-pointer" value="patient">
+                    patient
+                </label>
+                <label for="" class="text-myBlack">
+                    <input type="radio" formControlName="status" id="" class="cursor-pointer" value="doctor">
+                    doctor
+                </label>
+            </div>
+            <div class="w-full mb-8">
+                <input type="email" class="w-full border-b border-borderLightBlack py-2 px-1"
+                    placeholder="Email" formControlName="email"
+                >
+                <small class="block text-red-500 mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <p *ngIf="email.errors?.['required']">Email is required</p>
+                    <p *ngIf="email.errors?.['email']">Email must be a valid email address</p>
+                </small>
+            </div>
+            <div class="w-full mb-5">
+                <input type="password" class="w-full border-b border-borderLightBlack py-2 px-1"
+                    placeholder="Password" formControlName="password"
+                >
+                <small class="block text-red-500 mt-1" *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <p *ngIf="password.errors?.['required']">Password is required</p>
+                    <p *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long</p>
+                </small>
+            </div>
+            <button class="bg-myblue text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-5 mb-3 rounded {{ loginForm.invalid ? 'pointer-events-none bg-notClickable' : 'cursor-pointer' }} focus:ring-2 transform hover:scale-105" 
+            type="submit"
+            [disabled]="loginForm.invalid">Login</button>
+            <p class="text-myBlack mt-2 text-center">Don't have an account? <a routerLink="/register" class="text-myblue">Register</a></p>
+        </form>
     </div>
 </div>

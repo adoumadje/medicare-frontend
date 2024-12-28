@@ -21,6 +21,7 @@
                 >
                 <small class="block text-red-500 mt-1" *ngIf="email.invalid && (email.dirty || email.touched)">
                     <p *ngIf="email.errors?.['required']">Email is required</p>
+                    <p *ngIf="email.errors?.['email']">Email must be a valid email address</p>
                 </small>
             </div>
 
@@ -29,7 +30,8 @@
                     placeholder="Password" formControlName="password"
                 >
                 <small class="block text-red-500 mt-1" *ngIf="password.invalid && (password.dirty || password.touched)">
-                    <p *ngIf="fullname.errors?.['required']">Password is required</p>
+                    <p *ngIf="password.errors?.['required']">Password is required</p>
+                    <p *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long</p>
                 </small>
             </div>
 
