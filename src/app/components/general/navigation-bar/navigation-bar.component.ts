@@ -17,7 +17,6 @@ export class NavigationBarComponent implements OnInit {
 
       authenticated:boolean = false;
       user:any = null;
-      defaultAvatar:string = 'https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png';
 
       constructor(private router: Router,
         private userService: UserService,
@@ -34,12 +33,13 @@ export class NavigationBarComponent implements OnInit {
           }
         })
 
-        this.userService.getUser.subscribe({
-          next: (data) => {
+        this.userService.getUser.subscribe(
+          (data) => {
             this.authenticated = data !== null || sessionStorage.getItem('token') !== null;
             this.user = data || JSON.parse(sessionStorage.getItem('user') || '{}');
+            console.log(this.user);
           }
-        })
+        )
       }
 
       toggleMobileMenu():void {

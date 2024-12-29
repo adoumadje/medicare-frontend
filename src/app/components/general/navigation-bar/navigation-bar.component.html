@@ -13,10 +13,11 @@ style="background-image: url('bg-navbar.png');">
         <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/find-a-doctor' ? 'text-myblue' : '' }}"><a routerLink="find-a-doctor">Find a Doctor</a></li>
         <li class="mx-3 hover:text-myblue cursor-pointer {{ currentUrl === '/contact' ? 'text-myblue' : '' }}"><a routerLink="contact">Contact</a></li>
     </ul>
-    <button *ngIf="" class="hidden sm:block bg-myblue text-white px-4 py-1 rounded-l-full rounded-r-full shadow-md focus:ring-2 transform hover:scale-105" routerLink="login"
+    <button *ngIf="!authenticated" class="hidden sm:block bg-myblue text-white px-4 py-1 rounded-l-full rounded-r-full shadow-md focus:ring-2 transform hover:scale-105" routerLink="login"
     >Login</button>
-    <div class="w-10 h-10 rounded-full border border-borderLightBlack overflow-hidden cursor-pointer">
-        <img src="{{ user == null ? defaultAvatar : user.profilePicUrl }}" 
+    <div *ngIf="authenticated" class="w-10 h-10 rounded-full border border-borderLightBlack overflow-hidden cursor-pointer"
+    routerLink="{{ user.userRole === 'DOCTOR' ? 'doctor-dashboard' : 'patient-dashboard' }}">
+        <img src="{{ user.profilePicUrl }}" 
         alt="" class="mx-auto">
     </div>
     <div (click)="toggleMobileMenu()" class="sm:hidden z-10 cursor-pointer">
