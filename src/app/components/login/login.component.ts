@@ -34,14 +34,19 @@ export class LoginComponent {
         
     get password() { return this.loginForm.controls['password'] } 
 
+    doAfterLogin(data:any) {
+        sessionStorage.setItem('token', data.token)
+        sessionStorage.setItem('user', JSON.stringify(data.user))
+        this.userService.setUser(JSON.parse(data.user))
+
+        // this.router.navigate(['/home'])
+    }
+
     onSubmit() {
         if(this.loginForm.value.status === 'patient') {
             this.authService.loginPatient(this.loginForm.value).subscribe({
                 next: (data:any) => {
-                    sessionStorage.setItem('token', data.token)
-                    sessionStorage.setItem('user', JSON.stringify(data.user))
-
-                    this.router.navigate(['/home'])
+                    this.doAfterLogin(data)
                 },
                 error: (err) => {
                     this.toastr.error(err.message, 'Error', { timeOut: 3000 })
@@ -50,10 +55,7 @@ export class LoginComponent {
         } else {
             this.authService.loginDoctor(this.loginForm.value).subscribe({
                 next: (data:any) => {
-                    sessionStorage.setItem('token', data.token)
-                    sessionStorage.setItem('user', JSON.stringify(data.user))
-                    this.userService.setUser(data.user)
-                    this.router.navigate(['/home'])
+                    this.doAfterLogin(data)
                 },
                 error: (err) => {
                     this.toastr.error(err.message, 'Error', { timeOut: 3000 })
