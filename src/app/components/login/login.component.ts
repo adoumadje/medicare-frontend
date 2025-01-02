@@ -39,7 +39,7 @@ export class LoginComponent {
         sessionStorage.setItem('user', JSON.stringify(data.user))
         this.userService.setUser(JSON.parse(data.user))
 
-        // this.router.navigate(['/home'])
+        this.router.navigate(['/home'])
     }
 
     onSubmit() {

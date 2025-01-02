@@ -9,7 +9,7 @@ import { PatientDashboardComponent } from './components/patient-dashboard/patien
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 
 export const routes: Routes = [
-    { path: '', component: RegisterComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomePageComponent },
     { path: 'services', component: ServicesPageComponent },
     { path: 'find-a-doctor', component: FindADoctorComponent },
