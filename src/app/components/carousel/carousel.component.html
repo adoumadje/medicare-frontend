@@ -1,61 +1,24 @@
 <div class="hidden sm:flex justify-between">
-    <div class="max-w-30p p-3 cursor-pointer">
-        <div class="flex">
-            <div class="w-10 h-10 rounded overflow-hidden me-3">
-                <img src="https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg" alt=""
-                class="mx-auto">
-            </div>
-            <div>
-                <h4 class="font-semibold text-sm">Cristiano Ronaldo</h4>
+    <ng-container *ngFor="let testimonial of testimonials, let i = index">
+        <div *ngIf="i === currentSlide || i === prevSlide || i === nextSlide" class="max-w-30p p-3 cursor-pointer">
+            <div class="flex">
+                <div class="w-10 h-10 rounded overflow-hidden me-3">
+                    <img [src]="testimonial.patient.profilePicUrl" alt=""
+                    class="mx-auto">
+                </div>
                 <div>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
+                    <h4 class="font-semibold text-sm">{{testimonial.patient.firstName + ' ' 
+                    + testimonial.patient.lastName}}</h4>
+                    <div>
+                        <i *ngFor="let star of [1, 2, 3, 4, 5]"
+                        [class]="'bi ' + star <= testimonial.rating ? 'bi-star-fill' :
+                        (star - testimonial.rating >= 1 ? 'bi-star' : 'bi-star-half')  + ' text-sm text-myYellow me-1'"></i>
+                    </div>
                 </div>
             </div>
+            <p class="text-myBlack text-sm mt-2">"{{testimonial.testimony}}"</p>
         </div>
-        <p class="text-myBlack text-sm mt-2">"I found a specialist in my area, booked the time that worked for me, and received reminders before my visit. The convenience has truly made managing my healthcare so much easier!"</p>
-    </div>
-    <div class="max-w-30p rounded-xl bg-myblue p-3 shadow-xl">
-        <div class="flex">
-            <div class="w-10 h-10 rounded overflow-hidden me-3">
-                <img src="https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg" alt=""
-                class="mx-auto">
-            </div>
-            <div>
-                <h4 class="font-semibold text-sm text-white">Cristiano Ronaldo</h4>
-                <div>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                </div>
-            </div>
-        </div>
-        <p class="text-myWhite text-sm mt-2">"I found a specialist in my area, booked the time that worked for me, and received reminders before my visit. The convenience has truly made managing my healthcare so much easier!"</p>
-    </div>
-    <div class="max-w-30p p-3 cursor-pointer">
-        <div class="flex">
-            <div class="w-10 h-10 rounded overflow-hidden me-3">
-                <img src="https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg" alt=""
-                class="mx-auto">
-            </div>
-            <div>
-                <h4 class="font-semibold text-sm">Cristiano Ronaldo</h4>
-                <div>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                    <i class="bi bi-star-fill text-sm text-myYellow me-1"></i>
-                </div>
-            </div>
-        </div>
-        <p class="text-myBlack text-sm mt-2">"I found a specialist in my area, booked the time that worked for me, and received reminders before my visit. The convenience has truly made managing my healthcare so much easier!"</p>
-    </div>
+    </ng-container>
 </div>
 <div class="hidden sm:flex justify-center mt-8 text-sm">
     <i class="bi bi-circle-fill text-myblue me-2"></i>

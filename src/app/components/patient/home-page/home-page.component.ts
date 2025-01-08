@@ -26,7 +26,7 @@ export class HomePageComponent implements OnInit {
         error: (err) => {
             console.log(err)
         }
-    })
+      })
     }
 
     toggleAccordion(id:any) {

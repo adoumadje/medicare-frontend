@@ -16,4 +16,8 @@ export class HomeService {
   loadFAQs() {
     return this.http.get(`${this.baseURL}/general/get-FAQs`);
   }
+
+  loadTestimonials() {
+    return this.http.get(`${this.baseURL}/general/load-testimonials`);
+  }
 }
