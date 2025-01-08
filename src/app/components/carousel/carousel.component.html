@@ -1,22 +1,22 @@
 <div class="hidden sm:flex justify-between">
-    <ng-container *ngFor="let testimonial of testimonials, let i = index">
-        <div *ngIf="i === currentSlide || i === prevSlide || i === nextSlide" class="max-w-30p p-3 cursor-pointer">
+    <ng-container *ngFor="let testimonial of displayedTestimonials, let i = index">
+        <div [class]="'max-w-30p p-3 cursor-pointer rounded-md ' + (i === 1 ? 'bg-myblue p-3 shadow-xl' : '')">
             <div class="flex">
                 <div class="w-10 h-10 rounded overflow-hidden me-3">
-                    <img [src]="testimonial.patient.profilePicUrl" alt=""
-                    class="mx-auto">
+                    <img [src]="testimonial.patient.profilePicUrl" alt="avatar"
+                    class="mx-auto"/>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-sm">{{testimonial.patient.firstName + ' ' 
+                    <h4 [class]="(i === 1 ? 'text-myWhite' : 'text-myBlack') + 
+                    ' font-semibold text-sm'">{{testimonial.patient.firstName + ' ' 
                     + testimonial.patient.lastName}}</h4>
                     <div>
                         <i *ngFor="let star of [1, 2, 3, 4, 5]"
-                        [class]="'bi ' + star <= testimonial.rating ? 'bi-star-fill' :
-                        (star - testimonial.rating >= 1 ? 'bi-star' : 'bi-star-half')  + ' text-sm text-myYellow me-1'"></i>
+                        [class]="'bi ' + (star <= testimonial.rating ? 'bi-star-fill' : (star - testimonial.rating >= 1 ? 'bi-star' : 'bi-star-half'))  + ' text-sm text-myYellow me-1'"></i>
                     </div>
                 </div>
             </div>
-            <p class="text-myBlack text-sm mt-2">"{{testimonial.testimony}}"</p>
+            <p [class]="(i === 1 ? 'text-myWhite' : 'text-myBlack') + ' text-sm mt-2'">"{{testimonial.testimony}}"</p>
         </div>
     </ng-container>
 </div>
