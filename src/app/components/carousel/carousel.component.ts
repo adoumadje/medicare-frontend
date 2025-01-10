@@ -15,15 +15,25 @@ export class CarouselComponent implements OnInit {
     currentSlide:number
     prevSlide:number
     nextSlide:number
+    numPages:number
+    currPage:number
 
     constructor(private homeService:HomeService) {
         this.currentSlide = 0
         this.prevSlide = 0
         this.nextSlide = 0
+        this.numPages = 1
+        this.currPage = 0
     }
 
     setSlides(currentSlide:number) {
       this.currentSlide = currentSlide
+      if(this.currentSlide >= this.testimonials.length) {
+          this.currentSlide = 0
+      } else if(this.currentSlide < 0) {
+            this.currentSlide = this.testimonials.length - 1
+      }
+      this.currPage = Math.floor(this.currentSlide / 3)
       this.prevSlide = this.currentSlide - 1
       if(this.prevSlide < 0) {
           this.prevSlide = this.testimonials.length - 1
@@ -42,10 +52,19 @@ export class CarouselComponent implements OnInit {
       console.log(this.displayedTestimonials)
     }
 
+    selectDisplayedTestimonial(index:number) {
+        if(index == 0) {
+            this.setSlides(this.prevSlide)
+        } else if(index == 2) {
+            this.setSlides(this.nextSlide)
+        }
+    }
+
     ngOnInit() {
         this.homeService.loadTestimonials().subscribe({
             next: (data:any) => {
                 this.testimonials = data
+                this.numPages = Math.ceil(this.testimonials.length / 3)
                 this.setSlides(0)
             },
             error: (err) => {

@@ -1,6 +1,7 @@
 <div class="hidden sm:flex justify-between">
     <ng-container *ngFor="let testimonial of displayedTestimonials, let i = index">
-        <div [class]="'max-w-30p p-3 cursor-pointer rounded-md ' + (i === 1 ? 'bg-myblue p-3 shadow-xl' : '')">
+        <div [class]="'max-w-30p p-3 cursor-pointer rounded-md ' + (i === 1 ? 'bg-myblue p-3 shadow-xl' : '')"
+        (click)="selectDisplayedTestimonial(i)">
             <div class="flex">
                 <div class="w-10 h-10 rounded overflow-hidden me-3">
                     <img [src]="testimonial.patient.profilePicUrl" alt="avatar"
@@ -21,8 +22,8 @@
     </ng-container>
 </div>
 <div class="hidden sm:flex justify-center mt-8 text-sm">
-    <i class="bi bi-circle-fill text-myblue me-2"></i>
-    <i class="bi bi-circle"></i>
+    <i *ngFor="let x of [].constructor(numPages), let j = index"
+    [class]="'bi '+ (j === currPage ? 'bi-circle-fill' : 'bi-circle') + ' text-myblue me-2'"></i>
 </div>
 
 
