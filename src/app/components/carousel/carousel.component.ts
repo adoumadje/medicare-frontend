@@ -49,7 +49,6 @@ export class CarouselComponent implements OnInit {
       this.displayedTestimonials[0] = this.testimonials[this.prevSlide]
       this.displayedTestimonials[1] = this.testimonials[this.currentSlide]
       this.displayedTestimonials[2] = this.testimonials[this.nextSlide]
-      console.log(this.displayedTestimonials)
     }
 
     selectDisplayedTestimonial(index:number) {

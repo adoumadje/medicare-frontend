@@ -37,7 +37,6 @@ export class NavigationBarComponent implements OnInit {
           (data) => {
             this.authenticated = data !== null || sessionStorage.getItem('token') !== null;
             this.user = data || JSON.parse(sessionStorage.getItem('user') || '{}');
-            console.log(this.user);
           }
         )
       }

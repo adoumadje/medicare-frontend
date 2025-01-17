@@ -1,12 +1,11 @@
 <div class="px-8 sm:px-13 pt-32 sm:pt-36 pb-16 sm:flex">
-    <div class="sm:w-20p sm:me-16 sm:px-0 px-8 mb-10 sm:mb-0">
+    <div *ngIf="user !== null" class="sm:w-20p sm:me-16 sm:px-0 px-8 mb-10 sm:mb-0">
         <div class="w-20 h-20 rounded-full overflow-hidden mx-auto border border-borderLightBlack flex flex-col justify-end">
-            <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/people19.png" alt=""
-            class="mx-auto w-16">
+            <img [src]="user.profilePicUrl" alt="" class="mx-auto w-16">
         </div>
-        <h4 class="font-semibold mt-2 text-center">Emre Can</h4>
-        <p class="text-myBlack text-center my-1">emrecan&#64;gmail.com</p>
-        <p class="text-myBlack text-center">Blood Group: <span class="text-lg font-semibold">A+</span></p>
+        <h4 class="font-semibold mt-2 text-center">{{ user.firstName + ' ' + user.lastName }}</h4>
+        <p class="text-myBlack text-center my-1">{{ user.email }}</p>
+        <p class="text-myBlack text-center">Blood Group: <span class="text-lg font-semibold">{{ formatBloodGroup(user.bloodGroup) }}</span></p>
         <button class="bg-black text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mt-16 mb-5 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Logout</button>
         <button class="bg-red-500 text-white w-full sm:text-md text-sm px-3 sm:px-4 py-2 mb-3 rounded cursor-pointer focus:ring-2 transform hover:scale-105">Delete Account</button>
     </div>
@@ -83,14 +82,14 @@
                     <div class="flex">
                         <label for="" class="block font-semibold">Blood Group:</label>
                         <select name="" id="" class="bg-none ms-2 p-1">
-                            <option value="">A+</option>
-                            <option value="">A-</option>
-                            <option value="">B+</option>
-                            <option value="">B-</option>
-                            <option value="">O+</option>
-                            <option value="">O-</option>
-                            <option value="">AB+</option>
-                            <option value="">AB-</option>
+                            <option value="A_POS">A+</option>
+                            <option value="A_NEG">A-</option>
+                            <option value="B_POS">B+</option>
+                            <option value="B_NEG">B-</option>
+                            <option value="O_POS">O+</option>
+                            <option value="O_NEG">O-</option>
+                            <option value="AB_POS">AB+</option>
+                            <option value="AB_NEG">AB-</option>
                         </select>
                     </div>
                     <div class="flex">
